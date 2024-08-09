@@ -40,7 +40,7 @@ router.get('/posts/:id', postController.getPost);
  * @apiParam {String} [author] Author of the Post.
  * @apiSuccess {Object} post The updated post.
  */
-router.put('/posts/:id', postController.updatePost);
+router.put('/posts/ :id', postController.updatePost);
 
 /**
  * @api {delete} /posts/:id Delete a post by ID

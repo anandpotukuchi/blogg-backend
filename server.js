@@ -15,6 +15,12 @@ const postRoutes = require('./app/routes/post_router');
 //start express
 const app = express()
 
+
+//Enable CORS
+
+app.use(cors());
+
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
