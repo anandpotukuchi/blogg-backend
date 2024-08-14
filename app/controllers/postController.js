@@ -1,4 +1,4 @@
-const Post = require('../models/Post');
+import Post from '../models/Post.js';
 
 const getPosts = (req, res) => {
   Post.find()
@@ -65,7 +65,7 @@ const deletePost = (req, res) => {
     });
 };
 
-module.exports = {
+export default {
   getPosts,
   createPost,
   getPost,

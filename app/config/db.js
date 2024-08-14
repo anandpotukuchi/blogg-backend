@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
-const vars = require('./vars')
+import mongoose from 'mongoose'
+import { mongoUser, mongoPass, mongoHost, mongoDb, mongoPort } from './vars.js'
 
-const mongoUri = `mongodb://${vars.mongoUser}:${vars.mongoPass}@${vars.mongoHost}:${vars.mongoPort}/${vars.mongoDb}`;
+const mongoUri = `mongodb://${mongoUser}:${mongoPass}@${mongoHost}:${mongoPort}/${mongoDb}`;
 
-//console.log(mongoUri)
+//console.log("mongo URL: ", mongoUri)
 
 mongoose.connect(mongoUri   )
   .then(() => {

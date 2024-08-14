@@ -1,39 +1,38 @@
-const express = require('express')
-require('dotenv').config();
-const cors = require('cors'); // Import CORS
+import express from 'express';
+import 'dotenv/config'
+import cors from 'cors';
+import morgan from 'morgan';
+import { port } from './app/config/vars.js';
+import './app/config/db.js';  // Ensure the db.js file runs
 
-// configuration variables
-const port = require ('./app/config/vars').port;
+// Load environment variables
 
-//db config
-require ('./app/config/db');
+// Import the router
+import postRoutes from './app/routes/post_router.js';  // Synchronous import
 
-//import the router
-const postRoutes = require('./app/routes/post_router');
+// Start express
+const app = express();
 
-
-//start express
-const app = express()
-
-
-//Enable CORS
-
+// Enable CORS
 app.use(cors());
-
 
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
 
-//test route
+// Initial route
 app.get('/', (req, res) => {
-    res.json({msg: "Hello world"})
-})
+    res.json({ msg: "Hello world" });
+});
 
-// use the router
+// Use the router
 app.use('/', postRoutes);
 
-//create server conn
+// Create server connection
 app.listen(port, () => {
-    console.log(`listening on port ${port}`)
-  })
+    console.log(`Listening on port ${port}`);
+});
+
+export { app }
+

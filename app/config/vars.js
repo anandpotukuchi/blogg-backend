@@ -1,8 +1,6 @@
-module.exports = {
-    port: process.env.PORT || 3000,
-    mongoUser: process.env.MONGODB_USER,
-    mongoPass: process.env.MONGODB_PASS,
-    mongoHost: process.env.MONGODB_HOST,
-    mongoPort: process.env.MONGODB_PORT,
-    mongoDb: process.env.MONGODB_DB,
-};
+export const port = process.env.PORT || 3000;
+export const mongoUser = encodeURIComponent(process.env.MONGODB_USER);
+export const mongoPass = encodeURIComponent(process.env.MONGODB_PASS);
+export const mongoHost = encodeURIComponent(process.env.MONGODB_HOST);
+export const mongoPort = encodeURIComponent(process.env.MONGODB_PORT);
+export const mongoDb = encodeURIComponent(process.env.MONGODB_DB);

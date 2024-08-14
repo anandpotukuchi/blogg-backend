@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express'
 const router = express.Router();
-const postController = require('../controllers/postController');
+import postController from '../controllers/postController.js';
 
 /**
  * @api {get} /posts Get all posts
@@ -51,4 +51,4 @@ router.put('/posts/ :id', postController.updatePost);
  */
 router.delete('/posts/:id', postController.deletePost);
 
-module.exports = router;    
+export default router;
